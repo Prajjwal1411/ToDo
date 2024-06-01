@@ -9,7 +9,21 @@ import EditForm from './Alert/UpdateForm';
 import DeleteData from './Alert/DeleteData';
 import { useNavigate } from 'react-router-dom';
 
-export default function CardData() {
+
+
+const priorityColor=(priority)=>{
+
+  if(priority=='Low'){
+    return 'primary.main'
+  }else if(priority=='Medium'){
+    return '#ffeb3b'
+  }else if(priority=='High'){
+    return '##f50057'
+  }
+
+}
+
+export default   function CardData() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const userId=sessionStorage.getItem('userId');
@@ -36,7 +50,7 @@ export default function CardData() {
       .finally(() => {
         setLoading(false);
       });
-  }, [userId]);
+  }, []);
 
   if (loading) {
     return <Typography variant='h5'>Loading...</Typography>;
@@ -47,16 +61,21 @@ export default function CardData() {
   }
 
   return (
-    <div style={{ display: "flex", minHeight: "80vh", maxWidth: "80vw", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
+    <div style={{ display: "flex", minHeight: "80vh", maxWidth: "80vw", flexWrap: "wrap", alignItems: "center", justifyContent: "space-evenly" }}>
       {data.map((task, key) => (
-        <Card key={key} sx={{ minWidth: 400, border: 1, borderColor: 'primary.main', margin:"5vh 0vh 0vh 5vh"}}>
+        <Card key={key} m={2} sx={{ minWidth: 400,maxWidth: 500, border: 1, margin:"5vh 0vh 0vh 1vh"}} >
           <CardContent>
-            <Box style={{ display: "flex", justifyContent: "space-between" }}>
-              <Typography gutterBottom variant="h5">
-                {task.taskName}
-              </Typography>
+            <Box m={2} style={{ display: "flex", justifyContent: "space-between"}}>
+              <Box>
+                <Typography gutterBottom variant="h5">
+                  {task.taskName} 
+                </Typography>
+                <Typography gutterBottom variant="h7">
+                  {task.priority} 
+                </Typography>
+              </Box>
               <Typography variant="h7">
-                {task.priority}
+                {task.status}
               </Typography>
             </Box>
             <Typography variant="body2" textAlign="left" color="text.secondary">
@@ -64,7 +83,7 @@ export default function CardData() {
             </Typography>
           </CardContent>
           <Box display={"flex"} width="100%" alignItems={"center"} justifyContent={"space-around"}>
-            <Typography variant="body2" textAlign="left" color="text.secondary"> DueOn: {task.dueDate}</Typography>
+            <Typography variant="body2" textAlign="left" color="text.secondary"> DueOn : {task.dueDate}</Typography>
             <CardActions>
               <EditForm taskid={task.taskid}/>
               <DeleteData taskid={task.taskid}/>

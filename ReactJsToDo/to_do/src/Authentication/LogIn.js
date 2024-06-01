@@ -24,11 +24,13 @@ function Copyright(props) {
 }
 
 export default function LogIn() {
+
+  sessionStorage.removeItem('userId');
+  sessionStorage.removeItem('token');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigate = useNavigate();
-  sessionStorage.removeItem('userId');
-  sessionStorage.removeItem('token')
+  
 
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -122,7 +124,7 @@ export default function LogIn() {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/signup" variant="body2">
+              <Link variant="body2" onClick={(e)=>{navigate('/signup')}}>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

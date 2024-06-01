@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Cancel, Send } from '@mui/icons-material';
+import { Cancel, Edit, Send } from '@mui/icons-material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
@@ -116,7 +116,7 @@ export default function EditForm({ taskid}) {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" size='small' startIcon={<Edit/>} onClick={handleClickOpen}>
         Edit
       </Button>
       <Dialog
@@ -163,9 +163,9 @@ export default function EditForm({ taskid}) {
               value={priority}
               onChange={changePriority}
             >
-              <MenuItem value="low">Low</MenuItem>
-              <MenuItem value="medium">Medium</MenuItem>
-              <MenuItem value="high">High</MenuItem>
+              <MenuItem value="Low">Low</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="High">High</MenuItem>
             </Select>
           </FormControl>
           <FormControl fullWidth variant="standard" margin="normal">
@@ -175,9 +175,9 @@ export default function EditForm({ taskid}) {
               value={status}
               onChange={changeStatus}
             >
-              <MenuItem value="todo">To Do</MenuItem>
-              <MenuItem value="inProgress">In Progress</MenuItem>
-              <MenuItem value="completed">Completed</MenuItem>
+              <MenuItem value="To Do">To Do</MenuItem>
+              <MenuItem value="In Progress">In Progress</MenuItem>
+              <MenuItem value="Completed">Completed</MenuItem>
             </Select>
           </FormControl>
           <FormControl fullWidth variant="standard" margin="normal">

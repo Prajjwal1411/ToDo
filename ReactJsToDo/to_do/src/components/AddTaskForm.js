@@ -102,17 +102,17 @@ const AddTaskForm = () => {
           <FormControl fullWidth variant="outlined" margin="normal">
             <InputLabel>Priority</InputLabel>
             <Select label="Priority" value={priority} onChange={changePriority}>
-              <MenuItem value="low">Low</MenuItem>
-              <MenuItem value="medium">Medium</MenuItem>
-              <MenuItem value="high">High</MenuItem>
+              <MenuItem value="Low">Low</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="High">High</MenuItem>
             </Select>
           </FormControl>
           <FormControl fullWidth variant="outlined" margin="normal">
             <InputLabel>Status</InputLabel>
             <Select label="Status" value={status} onChange={changeStatus}>
-              <MenuItem value="todo">To Do</MenuItem>
-              <MenuItem value="inProgress">In Progress</MenuItem>
-              <MenuItem value="completed">Completed</MenuItem>
+              <MenuItem value="To Do">To Do</MenuItem>
+              <MenuItem value="In Progress">In Progress</MenuItem>
+              <MenuItem value="Completed">Completed</MenuItem>
             </Select>
           </FormControl>
           <FormControl fullWidth variant="outlined" margin="normal">

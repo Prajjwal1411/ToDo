@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -31,6 +32,7 @@ export default function SignUp() {
   const[lname,setLname]=React.useState();
   const[email,setEmail]=React.useState();
   const[password,setPassword]=React.useState();
+  const navigate=useNavigate();
 
 const changeFirstName=(e)=>{
     setFname(e.target.value)
@@ -153,7 +155,7 @@ const changePassword=(e)=>{
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
+                <Link onClick={(e)=>{navigate('/')}} variant="body2">
                   Already have an account? Log in
                 </Link>
               </Grid>

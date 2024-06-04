@@ -11,17 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const priorityColor=(priority)=>{
 
-  if(priority=='Low'){
-    return 'primary.main'
-  }else if(priority=='Medium'){
-    return '#ffeb3b'
-  }else if(priority=='High'){
-    return '##f50057'
-  }
-
-}
 
 export default   function CardData() {
   const [data, setData] = useState([]);
@@ -36,7 +26,7 @@ export default   function CardData() {
       .then((res) => {
         if (res.data.success) {
           setData(res.data.data.tasks);
-        } else if(res.data.status==487 || res.data.status==467) {
+        } else if(res.data.status===487 || res.data.status===467) {
           navigate('/');
           
         }
@@ -50,7 +40,7 @@ export default   function CardData() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [data]);
 
   if (loading) {
     return <Typography variant='h5'>Loading...</Typography>;

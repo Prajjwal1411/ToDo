@@ -53,7 +53,6 @@ export default function LogIn() {
     axios.post("http://localhost:8000/login", loginData)
       .then(res => {
         if (res.data.success) {
-          alert(res.data.msg);
           sessionStorage.setItem('userId', res.data.data._id);
           sessionStorage.setItem('token', res.data.authentication_token);
           setTimeout(() => {

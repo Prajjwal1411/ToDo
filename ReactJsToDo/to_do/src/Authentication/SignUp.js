@@ -60,7 +60,7 @@ const changePassword=(e)=>{
         axios.post("http://localhost:8000/register",register)
         .then(res=>{
             if(res.data.success){
-                alert(res.data.msg);
+              navigate('/');
             }
             else{
                 alert(res.data.msg);

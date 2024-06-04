@@ -60,7 +60,7 @@ const AddTaskForm = () => {
     })
       .then(res => {
         if (res.data.success) {
-          alert(res.data.msg);
+          alert("Task Added");
           setTimeout(()=>{
             navigate('/home')
           },1000)
